@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ExpenseItem.css"
 import ExpenseDates from "./ExpenseDates.js";
 import Card from "../UI/Card.js";
@@ -9,6 +9,10 @@ const ExpenseItem = (props) => {
     const day = props.date.toLocaleString("en-US", {day: "2-digit"})
     const year = props.date.getFullYear()
 
+    const titleChanger = () => {
+        console.log('update')
+    }
+
     return (
         <Card className="expense-item">
             <ExpenseDates date={props.date} />
@@ -16,7 +20,7 @@ const ExpenseItem = (props) => {
                 <h2>{props.title}</h2>
                 <div className="expense-item__price">{props.amount}</div>
             </div>
-            <button>Change Title</button>
+            <button onClick={titleChanger}>Change Title</button>
         </Card>
     )
 }
